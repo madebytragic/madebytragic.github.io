@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Submitted</title>
+  <link href="assets/img/logo1.png" rel="icon">
+  <link href="assets/img/logo1.png" rel="apple-touch-icon">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <section class="text-gray-600 body-font">
+    <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+      <div class="text-center lg:w-2/3 w-full">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Your Form has been submitted.</h1>
+        <p class="mb-8 leading-relaxed">Our Team will contact you back as soon as possible.<br> Please check your email for further communication.</p>
+        <div class="flex justify-center">
+          <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" onclick="goBack()" style="background-color: indigo;">Go Back</button>
+        </div>
+        <div id="form-data" class="mt-8 text-left">
+          <h2 class="text-lg font-medium mb-4">Submitted Form Data:</h2>
+          <ul>
+            <li><strong>Name:</strong> <span id="name"></span></li>
+            <li><strong>Email:</strong> <span id="email"></span></li>
+            <li><strong>Discord ID:</strong> <span id="discord-id"></span></li>
+            <li><strong>Discord Server Link:</strong> <span id="discord-server-link"></span></li>
+            <li><strong>Post:</strong> <span id="post"></span></li>
+            <li><strong>Why do you want to apply:</strong> <span id="why-apply"></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function goBack() {
+      window.location.href = "index.html";
+    }
+
+    // Mendapatkan parameter dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const email = urlParams.get('email');
+    const discordId = urlParams.get('discordid');
+    const discordServerLink = urlParams.get('Discord+Server+Link');
+    const post = urlParams.get('post');
+    const whyApply = urlParams.get('why-want-to-apply');
+
+    // Mengisi nilai-nilai parameter ke dalam elemen HTML
+    document.getElementById('name').textContent = name;
+    document.getElementById('email').textContent = email;
+    document.getElementById('discord-id').textContent = discordId;
+    document.getElementById('discord-server-link').textContent = discordServerLink;
+    document.getElementById('post').textContent = post;
+    document.getElementById('why-apply').textContent = whyApply;
+  </script>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
